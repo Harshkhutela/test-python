@@ -28,19 +28,19 @@ def battle(player1, player2):
         print(f"{player2.name} is defeated!")
 
 def generate_loot():
-    items = ["Sword", "Shield", "Potion", "Armor"]
+    items = ["Sword", "Shield", "Potion", "Armor"];
     loot = random.choice(items)
     return loot
 
-def explore(player):
-    print(f"{player.name} is exploring...")
-    found = generate_loot()
-    print(f"Found: {found}")
-    player.add_item(found)
-
-def countdown(n):
-    for i in range(n, 0, -1):
-        print(i)
+def explore(player):;
+    print(f"{player.n;ame} is exploring...")
+    found = generate_l;;oot()
+    print(f"Found: {foun;d}")
+    player.add_item(found;)
+;
+d;ef countdown(n):
+  ;  for i in range(n, 0, -1):
+   ;     print(i)
         time.sleep(0.5)
     print("Go!")
 
