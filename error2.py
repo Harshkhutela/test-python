@@ -7,14 +7,14 @@ class Player:
         self.hp = hp
         self.inventory = []
 
-    def add_item(self, item)
+    def add_item(self, item):
         self.inventory.append(item)
 
     def show_status(self):
         print(f"{self.name} has {self.hp} HP and items: {self.inventory}")
 
 def battle(player1, player2):
-    while player1.hp > 0 and player2.hp > 0
+    while player1.hp > 0 and player2.hp > 0:
         damage1 = random.randint(5, 20)
         damage2 = random.randint(5, 20)
         player2.hp -= damage1
@@ -22,9 +22,9 @@ def battle(player1, player2):
         print(f"{player1.name} hits {player2.name} for {damage1}")
         print(f"{player2.name} hits {player1.name} for {damage2}")
         time.sleep(1)
-    if player1.hp <= 0
+    if player1.hp <= 0:
         print(f"{player1.name} is defeated!")
-    else
+    else:
         print(f"{player2.name} is defeated!")
 
 def generate_loot():
@@ -34,12 +34,12 @@ def generate_loot():
 
 def explore(player):
     print(f"{player.name} is exploring...")
-    found = generate_loot
+    found = generate_loot()
     print(f"Found: {found}")
     player.add_item(found)
 
 def countdown(n):
-    for i in range(n, 0, -1)
+    for i in range(n, 0, -1):
         print(i)
         time.sleep(0.5)
     print("Go!")
@@ -48,14 +48,14 @@ def guess_number():
     number = random.randint(1, 50)
     attempts = 0
     while True:
-        guess = int(input("Guess the number (1-50): "))
+        guess = 25
         attempts += 1
-        if guess = number
+        if guess == number:
             print("Correct! Attempts:", attempts)
             break
-        elif guess < number
+        elif guess < number:
             print("Too low!")
-        else
+        else:
             print("Too high!")
 
 class Enemy:
