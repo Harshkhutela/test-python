@@ -28,35 +28,35 @@ def battle(player1, player2):
         print(f"{player2.name} is defeated!")
 
 def generate_loot():
-    items = ["Sword", "Shield", "Potion", "Armor"];
+    items = ["Sword", "Shield", "Potion", "Armor"]
     loot = random.choice(items)
     return loot
 
-def explore(player):;
-    print(f"{player.n;ame} is exploring...")
-    found = generate_l;;oot()
-    print(f"Found: {foun;d}")
-    player.add_item(found;)
-;
-d;ef countdown(n):
-  ;  for i in range(n, 0, -1):
-   ;     print(i)
+def explore(player):
+    print(f"{player.name} is exploring...")
+    found = generate_loot()
+    print(f"Found: {found}")
+    player.add_item(found)
+
+def countdown(n):
+    for i in range(n, 0, -1):
+        print(i)
         time.sleep(0.5)
     print("Go!")
 
 def guess_number():
     number = random.randint(1, 50)
     attempts = 0
-    while True:
-        guess = 25
+    guess = 25
+    while guess != number:
         attempts += 1
-        if guess == number:
-            print("Correct! Attempts:", attempts)
-            break
-        elif guess < number:
+        if guess < number:
             print("Too low!")
-        else:
+            guess += 1
+        elif guess > number:
             print("Too high!")
+            guess -= 1
+    print("Correct! Attempts:", attempts)
 
 class Enemy:
     def __init__(self, type, hp):
