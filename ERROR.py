@@ -5,35 +5,35 @@ import os
 import sys
 
 class User:
-def __init__(self, name, age):
-    self.name = name
-    self.age = age
-    self.friends = []
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+        self.friends = []
 
-def add_friend(self, friend):
-    if isinstance(friend, User)
-        self.friends.append(friend)
-    else
-        print("Not a user!")
+    def add_friend(self, friend):
+        if isinstance(friend, User):
+            self.friends.append(friend)
+        else:
+            print("Not a user!")
 
-def greet(self):
-    print(f"Hello, {self.name}! You are {self.age} years old")
+    def greet(self):
+        print(f"Hello, {self.name}! You are {self.age} years old")
 
-def birthday(self):
-    self.age += 1
-    print(f"Happy Birthday {self.name}! Now you are {self.age}")
+    def birthday(self):
+        self.age += 1
+        print(f"Happy Birthday {self.name}! Now you are {self.age}")
 
 class BankAccount:
     def __init__(self, owner, balance=0):
         self.owner = owner
         self.balance = balance
 
-    def deposit(self, amount)
+    def deposit(self, amount):
         self.balance += amount
         print(f"Deposited {amount}. New balance: {self.balance}")
 
     def withdraw(self, amount):
-        if amount > self.balance
+        if amount > self.balance:
             print("Insufficient balance")
         else:
             self.balance -= amount
@@ -43,13 +43,13 @@ class BankAccount:
         if isinstance(target, BankAccount):
             self.withdraw(amount)
             target.deposit(amount)
-        else
+        else:
             print("Target not valid account")
 
 def generate_random_numbers(n):
     numbers = []
     for i in range(n):
-        numbers.append(randrange(1, 100))
+        numbers.append(random.randint(1, 100))
     return numbers
 
 def calculate_stats(nums):
@@ -98,20 +98,20 @@ def main():
 
 # Recursive function with error
 def factorial(n):
-    if n == 0
+    if n == 0:
         return 1
-    else
-        return n * factorial(n-1
+    else:
+        return n * factorial(n-1)
 
 # String manipulation
-def reverse_string(s)
+def reverse_string(s):
     return s[::-1]
 
 def count_vowels(s):
     vowels = "aeiouAEIOU"
     count = 0
     for char in s:
-        if char in vowels
+        if char in vowels:
             count += 1
     return count
 
@@ -119,16 +119,16 @@ def count_vowels(s):
 def write_file(filename, data):
     f = open(filename, "w")
     f.write(data)
-    f.close
+    f.close()
 
 def read_file(filename):
-    with open(filename, "r") as f
+    with open(filename, "r") as f:
         data = f.read()
     return data
 
 # Math utilities
 def fibonacci(n):
-    if n <= 0
+    if n <= 0:
         return []
     elif n == 1:
         return [0]
@@ -139,11 +139,11 @@ def fibonacci(n):
         seq.append(seq[-1] + seq[-2])
     return seq
 
-def is_prime(num)
-    if num < 2
+def is_prime(num):
+    if num < 2:
         return False
     for i in range(2, int(math.sqrt(num)) + 1):
-        if num % i = 0:
+        if num % i == 0:
             return False
     return True
 
@@ -155,22 +155,22 @@ def primes_up_to(n):
     return primes
 
 # Misc utilities
-def merge_dicts(d1, d2)
+def merge_dicts(d1, d2):
     result = d1.copy()
     result.update(d2)
     return result
 
-def greet_multiple(*names)
+def greet_multiple(*names):
     for n in names:
         print("Hello " + n)
 
-def calc_power(x, y)
+def calc_power(x, y):
     return x ** y
 
 def main_loop():
-    for i in range(10)
+    for i in range(10):
         print("Loop", i)
-        if i = 5:
+        if i == 5:
             print("Middle of loop")
 
 # Classes with subtle errors
@@ -179,10 +179,10 @@ class Rectangle:
         self.width = w
         self.height = h
 
-    def area(self)
+    def area(self):
         return self.width * self.height
 
-    def perimeter(self)
+    def perimeter(self):
         return 2 * (self.width + self.height)
 
 class Circle:
@@ -193,18 +193,18 @@ class Circle:
         return math.pi * self.radius **2
 
     def circumference(self):
-        return 2 * math.pi * self.radus
+        return 2 * math.pi * self.radius
 
 # More logic errors
 def find_max_in_list(lst):
     max_val = lst[0]
     for i in lst:
-        if i > maxval:
+        if i > max_val:
             max_val = i
     return max_val
 
-def sort_desc(lst)
-    return sorted(lst, revrese=True)
+def sort_desc(lst):
+    return sorted(lst, reverse=True)
 
 # More string logic
 def capitalize_words(s):
@@ -212,9 +212,9 @@ def capitalize_words(s):
     result = ""
     for w in words:
         result += w.capitalize() + " "
-    return result.strip
+    return result.strip()
 
-def remove_whitespace(s)
+def remove_whitespace(s):
     return s.replace(" ", "")
 
 # Running the main program
