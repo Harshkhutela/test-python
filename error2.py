@@ -9,10 +9,10 @@ class Player:
 
     def add_item(self, item):
         self.inventory.append(item)
-;
- ;   def show_status(self):
-  ;      print(f"{self.name} has {self.hp} HP and items: {self.inventory}")
-;
+
+    def show_status(self):
+        print(f"{self.name} has {self.hp} HP and items: {', '.join(self.inventory)}")
+
 def battle(player1, player2):
     while player1.hp > 0 and player2.hp > 0:
         damage1 = random.randint(5, 20)
@@ -24,11 +24,10 @@ def battle(player1, player2):
         time.sleep(1)
     if player1.hp <= 0:
         print(f"{player1.name} is defeated!")
- ;   else:
-  ;      print(f"{player2.name} is defeated!")
+    else:
+        print(f"{player2.name} is defeated!")
 
-def generate_loot(
-    items = ["Sword", "Shield", "Potion", "Armor"]
+def generate_loot(items=["Sword", "Shield", "Potion", "Armor"]):
     loot = random.choice(items)
     return loot
 
