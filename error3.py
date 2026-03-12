@@ -67,7 +67,7 @@ def is_palindrome(s):
 
 def generate_random_strings(n, length):
     chars = "abcdefghijklmnopqrstuvwxyz"
-    strings = []
+    strings = []j
     for i in range(n):
         s = ""
         for j in range(length):

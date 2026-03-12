@@ -57,7 +57,7 @@ def guess_number():
             print("Too low!")
         else:
             print("Too high!")
-
+n
 class Enemy:
     def __init__(self, type, hp):
         self.type = type

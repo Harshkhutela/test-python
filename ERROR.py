@@ -11,7 +11,7 @@ class User:
         self.friends = []
 
     def add_friend(self, friend):
-        if isinstance(friend, User):
+        if isinstance(friend, User):n
             self.friends.append(friend)
         else:
             print("Not a user!")
