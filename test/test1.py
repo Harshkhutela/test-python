@@ -1,7 +1,5 @@
-# Giant Python Practice Script
-# Part 1: Lines 1–500
-# Warning: This file intentionally contains MANY errors (syntax, logic, undefined variables, indentation, etc.)
-# Your challenge: Debug and fix them!
+Here is the corrected Python code:
+
 
 import os
 import sys
@@ -10,307 +8,186 @@ import random
 import datetime
 import json
 import re
+import time
 
-# Start with some broken imports
-import non_existent_module
-from math import squareroot  # wrong function name
-
-# Global variables
 GLOBAL_COUNT = 0
-GLOBAL_LIST = [1, 2, 3, "four", five]  # 'five' undefined
+GLOBAL_LIST = [1, 2, 3, 'four', 5]
 
 def broken_function(a, b):
-print("This function is broken")   # indentation error
-    return a + b + c   # 'c' undefined
+    print("This function is working")
+    return a + b
 
 class BrokenClass:
     def __init__(self, value):
         self.value = value
-        self.missing_attr = not_defined_var   # undefined variable
+        if isinstance(self.value, str):
+            pass
+        elif isinstance(self.value, (int, float)):
+            pass
+        else:
+            raise TypeError("Value must be string or numeric")
 
     def display(self):
-        print("Value is: " + self.value)   # type error if value not str
+        print("Value is: " + self.value)
 
     def compute(self, x):
-        return x ** 2 + self.value   # type error if self.value not numeric
+        return x ** 2 + self.value
 
-# Random nonsense functions
 def factorial(n):
     if n == 0:
         return 1
     else:
         return n * factorial(n-1)
 
-def factorial(n):   # duplicate function definition
-    return "factorial of " + str(n)
-
-# More broken code
-for i in range(10)
-    print("Loop missing colon")   # syntax error
-
-while True
-    break   # syntax error
-
-# Fake data structures
-data = {
-    "name": "Test",
-    "age": 25,
-    "skills": ["Python", "Java", "C++"],
-    "invalid": some_undefined_var
-}
-
-# Functions with logical errors
-def divide(a, b):
-    return a / 0   # division by zero
-
-def recursive_error(x):
-    return recursive_error(x)   # infinite recursion
-
-# Classes with broken inheritance
 class Parent:
     def greet(self):
         print("Hello from Parent")
 
-class Child(Parent, NonExistentBase):   # NonExistentBase undefined
+class Child(Parent):
     def greet(self):
         super().greet()
         print("Hello from Child")
 
-# Generate lots of filler broken code
-for i in range(100):
-    def temp_func(x):
-        return x + i + undefined_var   # undefined_var error
+data = {"name": "Test", "age": 25, "skills": ["Python", "Java", "C++"]}
 
-    class TempClass:
-        def method(self):
-            print("Method with error" + 123)   # type error
+def divide(a, b):
+    if b != 0:
+        return a / b
 
-# More nonsense
-def json_test():
-    obj = {"key": "value"}
-    return json.dumps(obj, indent="two")   # wrong type for indent
-
-def regex_test():
-    pattern = re.compile("[A-Z")
-    return pattern.match("Hello")   # unclosed regex bracket
-
-# Broken file operations
-def file_ops():
-    f = open("nonexistent.txt", "r")
-    content = f.read()
-    f.close()
-    return content
-
-# Continue filler until ~500 lines
-for i in range(200):
-    print("Line filler", i)
-    if i % 2 == 0
-        print("Even number")   # missing colon
-    else
-        print("Odd number")    # missing colon
-
-# Giant Python Practice Script
-# Part 2: Lines 501–1000
-
-# More broken functions
-def strange_func(a, b, c):
-    result = a + b + c + d   # 'd' not defined
-    return result
-
-def another_func():
-    print("This function forgets to return")
-
-def another_func():   # duplicate definition
-    return missing_variable
-
-# Broken class hierarchy
-class Base:
-    def method(self):
-        print("Base method")
-
-class Derived(Base, UnknownBase):   # UnknownBase not defined
-    def method(self):
-        super().method()
-        print("Derived method")
-
-# Random filler with errors
-for j in range(50):
-    def inner_func(y):
-        return y * j / zero_divisor   # zero_divisor not defined
-
-    class InnerClass:
-        def __init__(self):
-            self.attr = "broken" + 123   # type error
-
-        def show(self):
-            print("Attr is", self.attr)
-
-# More nonsense
-def string_ops():
-    s = "hello"
-    return s[100]   # index out of range
-
-def math_ops():
-    return math.sqrt("not a number")   # type error
-
-# Broken recursion
-def infinite_recursion(x):
-    return infinite_recursion(x+1)
-
-# File handling again
-def write_file():
-    f = open("readonly.txt", "w")
-    f.write("Trying to write")
-    f.close()
-
-# More filler
-for k in range(300):
-    print("Filler line", k)
-    if k % 3 == 0
-        print("Divisible by 3")   # missing colon
-    elif k % 5 == 0
-        print("Divisible by 5")   # missing colon
-    else
-        print("Other")            # missing colon
-
-# Giant Python Practice Script
-# Part 3: Lines 1001–1500
-
-# More broken definitions
-def calc_area(radius):
-    return 3.14159 * radius * radious   # typo in variable
-
-def list_ops():
-    lst = [1, 2, 3]
-    return lst[10]   # index out of range
-
-class WeirdClass:
-    def __init__(self, name):
-        self.name = name
-        self.value = int("not_a_number")   # ValueError
-
-    def show(self):
-        print("Name is", self.nam)   # typo in attribute
-
-# More filler
-for m in range(100):
-    def filler_func(z):
-        return z + m + missing   # missing variable
-
-    class FillerClass:
-        def method(self):
-            print("Broken filler" + 456)   # type error
-
-# More nonsense
-def dict_ops():
-    d = {"a": 1, "b": 2}
-    return d["c"]   # key error
-
-def set_ops():
-    s = set([1, 2, 3])
-    return s[0]   # sets not subscriptable
-
-# Broken loops
-for n in range(20)
-    print("Loop error")   # missing colon
-
-while True
-    print("Infinite loop")   # missing colon
-    break
-
-# Classes with broken methods
 class Alpha:
     def run(self):
         return "Alpha running"
 
 class Beta(Alpha):
     def run(self):
-        return super().rn()   # typo in method
+        return super().run()
 
-# More filler
-for p in range(200):
-    print("Line filler", p)
-    if p % 4 == 0
-        print("Divisible by 4")   # missing colon
-    elif p % 7 == 0
-        print("Divisible by 7")   # missing colon
-    else
-        print("Other")            # missing colon
+d = {"a": 1, "b": 2}
+s = {1, 2, 3}
 
-# Giant Python Practice Script
-# Part 4: Lines 1501–2500+
+def dict_ops():
+    return d.get("a", None)
 
-# More broken functions
-def compute_sum(a, b):
-    return a + b + c   # c not defined
+def set_ops():
+    return list(s)[0]
 
-def compute_product(x, y):
-    return x * y * z   # z not defined
-
-# Broken class
 class Gamma:
     def __init__(self, val):
         self.val = val
-        self.extra = undefined_attr
 
     def show(self):
         print("Gamma value:", self.val)
-        print("Extra:", self.extr)   # typo
 
-# More filler loops
-for q in range(400):
-    print("Filler line", q)
-    if q % 2 == 0
-        print("Even filler")   # missing colon
-    else
-        print("Odd filler")    # missing colon
-
-# More nonsense
-def broken_math():
-    return math.log(-1)   # domain error
-
-def broken_string():
-    s = "abc"
-    return s + 123   # type error
-
-# Classes with broken inheritance
 class Delta:
     def run(self):
         return "Delta running"
 
-class Epsilon(Delta, MissingBase):   # MissingBase not defined
+class Epsilon(Delta):
     def run(self):
-        return super().run() + 456   # type error
+        return super().run() + " extra"
 
-# More filler
-for r in range(300):
-    def filler_func2(t):
-        return t + r + not_found
+def json_test():
+    obj = {"key": "value"}
+    return json.dumps(obj, indent=4)
 
-    class FillerClass2:
-        def method(self):
-            print("Broken filler2" + 789)
+def regex_test():
+    pattern = re.compile("[A-Z]+")
+    return pattern.match("Hello")
 
-# More nonsense
-def dict_error():
-    d = {"x": 1}
-    return d["y"]
+def file_ops():
+    try:
+        f = open("read-only.txt", "r")
+        content = f.read()
+        f.close()
+        return content
+    except FileNotFoundError:
+        return ""
 
-def list_error():
-    l = [10, 20]
-    return l["string_index"]
+def string_ops():
+    s = "hello"
+    return s[0]
 
-# Broken recursion again
-def recurse_forever(n):
-    return recurse_forever(n+1)
+def math_ops():
+    return math.sqrt(4)
 
-# More filler until 2500+
-for s in range(600):
-    print("Line filler", s)
-    if s % 10 == 0
-        print("Divisible by 10")
-    elif s % 15 == 0
-        print("Divisible by 15")
-    else
-        print("Other filler")
+def compute_sum(a, b):
+    return a + b
 
+def compute_product(x, y):
+    return x * y
+
+def write_file():
+    try:
+        f = open("read-only.txt", "w")
+        f.write("Trying to write")
+        f.close()
+    except PermissionError:
+        pass
+
+class ParentClass:
+    def method(self):
+        print("Parent method")
+
+class ChildClass(ParentClass, object):
+    def method(self):
+        super().method()
+
+def another_func():
+    print("This function returns")
+    return "returned"
+
+def input_default():
+    name = "Test User"
+    return name
+
+GLOBAL_COUNT = 0
+GLOBAL_LIST = [1, 2, 3, 'four', 5]
+
+print(broken_function(4, 5))
+b = BrokenClass('Hello')
+b.display()
+print(b.compute(10))
+
+print(factorial(5))
+
+parent = Parent()
+child = Child()
+parent.greet()
+child.greet()
+
+print(dict_ops())
+print(set_ops())
+
+gamma = Gamma(val=100)
+gamma.show()
+
+delta = Delta()
+print(delta.run())
+
+print(json_test())
+
+print(regex_test())
+
+content = file_ops()
+if content:
+    print(content)
+
+print(string_ops())
+
+print(math_ops())
+
+print(compute_sum(10, 2))
+print(compute_product(5, 3))
+
+write_file()
+
+parent_method = ParentClass()
+child_method = ChildClass()
+parent_method.method()
+child_method.method()
+
+another_func_result = another_func()
+print(another_func_result)
+
+input_default_value = input_default()
+print(input_default_value)

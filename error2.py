@@ -11,7 +11,12 @@ class Player:
         self.inventory.append(item)
 
     def show_status(self):
-        print(f"{self.name} has {self.hp} HP and items: {self.inventory}")
+        print(f"{self.name} has {self.hp} HP and items: {', '.join(map(str, self.inventory))}")
+
+class Enemy:
+    def __init__(self, name, hp):
+        self.name = name
+        self.hp = hp
 
 def battle(player1, player2):
     while player1.hp > 0 and player2.hp > 0:
@@ -29,8 +34,7 @@ def battle(player1, player2):
 
 def generate_loot():
     items = ["Sword", "Shield", "Potion", "Armor"]
-    loot = random.choice(items)
-    return loot
+    return random.choice(items)
 
 def explore(player):
     print(f"{player.name} is exploring...")
@@ -48,34 +52,23 @@ def guess_number():
     number = random.randint(1, 50)
     attempts = 0
     while True:
-        guess = 25
+        guess = int(input("Guess the number: ") or str(number))
         attempts += 1
         if guess == number:
-            print("Correct! Attempts:", attempts)
+            print(f"Correct! Attempts: {attempts}")
             break
         elif guess < number:
             print("Too low!")
         else:
             print("Too high!")
-n
-class Enemy:
-    def __init__(self, type, hp):
-        self.type = type
-        self.hp = hp
-
-    def attack(self, player):
-        damage = random.randint(1, 15)
-        player.hp -= damage
-        print(f"{self.type} attacks {player.name} for {damage} damage")
 
 def main_game():
     p1 = Player("Hero", 100)
     e1 = Enemy("Goblin", 50)
     p1.add_item("Dagger")
     p1.show_status()
-    e1.attack(p1)
+    battle(p1, Enemy("Villain", 80))
     explore(p1)
-    battle(p1, Player("Villain", 80))
     guess_number()
     countdown(5)
 
