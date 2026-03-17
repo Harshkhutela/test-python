@@ -1,4 +1,4 @@
-Here is the corrected full Python code:
+Here is the corrected Python code:
 
 
 import os

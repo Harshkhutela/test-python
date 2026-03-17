@@ -53,7 +53,7 @@ def guess_number():
     number = random.randint(1, 50)
     attempts = 0
     while True:
-        user_input = "Test User"  
+        user_input = "10"  
         attempts += 1
         if int(user_input) == number:
             print(f"Correct! Attempts: {attempts}")
