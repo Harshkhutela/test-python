@@ -1,4 +1,5 @@
-Here is the corrected Python program:
+Here is the fully corrected and fixed Python program:
+
 
 
 import math
@@ -6,7 +7,7 @@ import random
 import datetime
 import os
 import sys
-from statistics import stats
+from statistics import mean, median, mode, stdev
 
 class User:
     def __init__(self, name, age):
@@ -198,7 +199,7 @@ class Circle:
         self.radius = radius
 
     def area(self):
-        return math.pi * self.radius **2
+        return math.pi * self.radius ** 2
 
     def circumference(self):
         return 2 * math.pi * self.radius

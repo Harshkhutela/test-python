@@ -1,5 +1,4 @@
-Here is the corrected Python code:
-
+Here is the corrected Python program:
 
 lines_needed = 2000
 output_file = "challenge_2000_lines.py"
