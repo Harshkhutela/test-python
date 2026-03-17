@@ -1,4 +1,4 @@
-Here is the corrected full Python code:
+Here is the corrected code:
 
 
 lines_needed = 2000
@@ -13,21 +13,21 @@ with open(output_file, "w") as f:
         elif i % 7 == 0:
             f.write("x{} = {}\n".format(i, i+1))
         elif i % 11 == 0:
-            f.write("if {} == {}:\n".format(i, i)) 
+            f.write("if x{} == {}: pass\n".format(i-1, i))
         elif i % 13 == 0:
-            f.write("for j in range({}):\n".format(i))
+            f.write("for j in range({}):\n".format(i))  
         elif i % 17 == 0:
             f.write("print('Error line {}')\n".format(i))
         elif i % 19 == 0:
-            f.write("return {}\n".format(i))  
+            f.write("return {}\n".format(i)) 
         elif i % 23 == 0:
             f.write("class MyClass_{}:\n".format(i))
         elif i % 29 == 0:
             f.write("while True: pass\n")
         elif i % 31 == 0:
-            f.write("import modules.module_{}\n".format(i))  
+            f.write("import modules.module_{})\n".format(i))  
         elif i % 37 == 0:
-            f.write("def recursive_{}(x): return {}\n".format(i, i))  
+            f.write("def recursive_{}(x): return {}\n".format(i, i)) 
         else:
             f.write("x{} = {} + {}\n".format(i, 2*i-1, 2*i))
 

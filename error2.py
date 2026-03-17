@@ -1,6 +1,3 @@
-Here is the corrected Python program:
-
-
 import random
 import time
 
@@ -70,8 +67,8 @@ def main_game():
     p1.show_status()
     battle(p1, e2)
     explore(p1)
-    guess_number()
     countdown(5)
+    guess_number()
 
 if __name__ == "__main__":
     main_game()

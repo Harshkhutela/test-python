@@ -1,4 +1,4 @@
-Here is the corrected Python code:
+Here is the corrected full Python code:
 
 
 import os
@@ -28,7 +28,7 @@ class BrokenClass:
             raise TypeError("Value must be string or numeric")
 
     def display(self):
-        print("Value is: " + str(self.value))
+        print(f"Value is: {self.value}")
 
     def compute(self, x):
         return x ** 2 + self.value
@@ -80,7 +80,7 @@ class Gamma:
         self.val = val
 
     def show(self):
-        print("Gamma value:", self.val)
+        print(f"Gamma value: {self.val}")
 
 class Delta:
     def run(self):

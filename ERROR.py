@@ -1,4 +1,4 @@
-Here is the fully corrected Python code:
+Here is the corrected Python file:
 
 
 import math
@@ -6,6 +6,7 @@ import random
 import datetime
 import os
 import sys
+import statistics as stats
 
 class User:
     def __init__(self, name, age):
@@ -97,9 +98,9 @@ def main():
 
     # Random numbers and stats
     nums = generate_random_numbers(10)
-    stats = calculate_stats(nums)
+    stats_data = calculate_stats(nums)
     print("Random numbers:", nums)
-    print("Statistics:", stats)
+    print("Statistics:", stats_data)
 
     # Dates and times
     today = datetime.date.today()
