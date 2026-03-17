@@ -11,7 +11,7 @@ with open(output_file, "w") as f:
         elif i % 5 == 0:
             f.write("print('Hello World {}')\n".format(i))
         elif i % 7 == 0:
-            f.write("x{} = y{} + 5\n".format(i, i))
+            f.write("x{} = {} + 5\n".format(i, i))
         elif i % 11 == 0:
             f.write("if {} == {}:\n".format(i, i)) 
         elif i % 13 == 0:
@@ -25,7 +25,7 @@ with open(output_file, "w") as f:
         elif i % 29 == 0:
             f.write("while True: pass\n")
         elif i % 31 == 0:
-            f.write("import module{}\n".format(i))
+            f.write("import modules{}\n".format(i))
         elif i % 37 == 0:
             f.write("def recursive_{}(x): return {}\n".format(i, i))  
         else:

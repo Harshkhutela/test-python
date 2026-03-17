@@ -1,4 +1,4 @@
-Here is the corrected code:
+Here is the corrected Python program:
 
 
 import random
@@ -53,19 +53,12 @@ def guess_number():
     number = random.randint(1, 50)
     attempts = 0
     while True:
-        user_input = "test" 
-        if user_input.lower() == "exit":
-            print(f"Correct! Attempts: {attempts}")
-            break
-        try:
-            guess = int(user_input)
-        except ValueError:
-            continue
+        user_input = "Test User"  
         attempts += 1
-        if guess == number:
+        if int(user_input) == number:
             print(f"Correct! Attempts: {attempts}")
             break
-        elif guess < number:
+        elif int(user_input) < number:
             print("Too low!")
         else:
             print("Too high!")
