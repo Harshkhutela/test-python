@@ -50,7 +50,14 @@ def guess_number():
     number = random.randint(1, 50)
     attempts = 0
     while True:
-        guess = int(input(f"Guess the number: {number}") or 25)
+        user_input = input("Enter your guess: ")
+        if user_input.lower() == "exit":
+            print(f"Correct! Attempts: {attempts}")
+            break
+        try:
+            guess = int(user_input)
+        except ValueError:
+            continue
         attempts += 1
         if guess == number:
             print(f"Correct! Attempts: {attempts}")

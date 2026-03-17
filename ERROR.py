@@ -1,4 +1,4 @@
-Here is the corrected Python program:
+Here is the corrected code:
 
 
 import math
