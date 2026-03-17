@@ -2,7 +2,7 @@ import random
 import time
 
 class Player:
-    def __init__(self, name, hp):
+    def __init__(self, name="Hero", hp=100):
         self.name = name
         self.hp = hp
         self.inventory = []
@@ -11,7 +11,12 @@ class Player:
         self.inventory.append(item)
 
     def show_status(self):
-        print(f"{self.name} has {self.hp} HP and items: {self.inventory}")
+        print(f"{self.name} has {self.hp} HP and items: {', '.join(map(str, self.inventory))}")
+
+class Enemy:
+    def __init__(self, name="Villain", hp=80):
+        self.name = name
+        self.hp = hp
 
 def battle(player1, player2):
     while player1.hp > 0 and player2.hp > 0:
@@ -29,14 +34,11 @@ def battle(player1, player2):
 
 def generate_loot():
     items = ["Sword", "Shield", "Potion", "Armor"]
-    loot = random.choice(items)
-    return loot
+    return random.choice(items)
 
 def explore(player):
-    print(f"{player.name} is exploring...")
-    found = generate_loot()
-    print(f"Found: {found}")
-    player.add_item(found)
+    player.add_item(generate_loot())
+    player.show_status()
 
 def countdown(n):
     for i in range(n, 0, -1):
@@ -48,36 +50,25 @@ def guess_number():
     number = random.randint(1, 50)
     attempts = 0
     while True:
-        guess = 25
+        user_input = "10"  
         attempts += 1
-        if guess == number:
-            print("Correct! Attempts:", attempts)
+        if int(user_input) == number:
+            print(f"Correct! Attempts: {attempts}")
             break
-        elif guess < number:
+        elif int(user_input) < number:
             print("Too low!")
         else:
             print("Too high!")
-n
-class Enemy:
-    def __init__(self, type, hp):
-        self.type = type
-        self.hp = hp
-
-    def attack(self, player):
-        damage = random.randint(1, 15)
-        player.hp -= damage
-        print(f"{self.type} attacks {player.name} for {damage} damage")
 
 def main_game():
-    p1 = Player("Hero", 100)
-    e1 = Enemy("Goblin", 50)
+    p1 = Player()
+    e2 = Enemy()
     p1.add_item("Dagger")
     p1.show_status()
-    e1.attack(p1)
+    battle(p1, e2)
     explore(p1)
-    battle(p1, Player("Villain", 80))
-    guess_number()
     countdown(5)
+    guess_number()
 
 if __name__ == "__main__":
     main_game()

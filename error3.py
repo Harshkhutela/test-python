@@ -11,7 +11,7 @@ def read_csv(filename):
     return data
 
 def write_csv(filename, data):
-    f = open(filename, "w")
+    f = open(filename, "w", newline='')
     writer = csv.writer(f)
     writer.writerow(data)
     f.close()
@@ -58,7 +58,7 @@ def count_occurrences(lst, value):
 
 def factorial_iterative(n):
     result = 1
-    for i in range(1, n):
+    for i in range(1, n+1):
         result *= i
     return result
 
@@ -67,7 +67,7 @@ def is_palindrome(s):
 
 def generate_random_strings(n, length):
     chars = "abcdefghijklmnopqrstuvwxyz"
-    strings = []j
+    strings = []
     for i in range(n):
         s = ""
         for j in range(length):

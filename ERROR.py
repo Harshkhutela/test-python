@@ -1,8 +1,12 @@
+Here is the corrected Python file:
+
+
 import math
 import random
 import datetime
 import os
 import sys
+import statistics as stats
 
 class User:
     def __init__(self, name, age):
@@ -11,7 +15,7 @@ class User:
         self.friends = []
 
     def add_friend(self, friend):
-        if isinstance(friend, User):n
+        if isinstance(friend, User):
             self.friends.append(friend)
         else:
             print("Not a user!")
@@ -29,15 +33,21 @@ class BankAccount:
         self.balance = balance
 
     def deposit(self, amount):
-        self.balance += amount
-        print(f"Deposited {amount}. New balance: {self.balance}")
+        if isinstance(amount, (int, float)) and amount >= 0:
+            self.balance += amount
+            print(f"Deposited {amount}. New balance: {self.balance}")
+        else:
+            print("Invalid deposit")
 
     def withdraw(self, amount):
-        if amount > self.balance:
-            print("Insufficient balance")
+        if isinstance(amount, (int, float)) and amount > 0:
+            if amount > self.balance:
+                print("Insufficient balance")
+            else:
+                self.balance -= amount
+                print(f"Withdrew {amount}. Remaining: {self.balance}")
         else:
-            self.balance -= amount
-            print(f"Withdrew {amount}. Remaining: {self.balance}")
+            print("Invalid withdrawal")
 
     def transfer(self, target, amount):
         if isinstance(target, BankAccount):
@@ -83,27 +93,28 @@ def main():
         src = random.choice(accounts)
         dst = random.choice(accounts)
         amt = random.randint(50, 500)
-        src.transfer(dst, amt)
+        if isinstance(src, BankAccount) and isinstance(dst, BankAccount):
+            src.transfer(dst, amt)
 
     # Random numbers and stats
     nums = generate_random_numbers(10)
-    stats = calculate_stats(nums)
+    stats_data = calculate_stats(nums)
     print("Random numbers:", nums)
-    print("Statistics:", stats)
+    print("Statistics:", stats_data)
 
     # Dates and times
     today = datetime.date.today()
     print("Today is", today.strftime("%A, %B %d, %Y"))
-    print("Random day of year:", datetime.datetime.today().dayofyear)
+    print("Random day of year:", (today - datetime.date(today.year, 1, 1)).days + 1)
 
-# Recursive function with error
 def factorial(n):
     if n == 0:
         return 1
-    else:
+    elif n > 0:
         return n * factorial(n-1)
+    else:
+        raise ValueError('Factorial is not defined for negative integers')
 
-# String manipulation
 def reverse_string(s):
     return s[::-1]
 
@@ -115,18 +126,15 @@ def count_vowels(s):
             count += 1
     return count
 
-# File operations
 def write_file(filename, data):
-    f = open(filename, "w")
-    f.write(data)
-    f.close()
+    with open(filename, "w") as f:
+        f.write(data)
 
 def read_file(filename):
     with open(filename, "r") as f:
         data = f.read()
     return data
 
-# Math utilities
 def fibonacci(n):
     if n <= 0:
         return []
@@ -154,10 +162,8 @@ def primes_up_to(n):
             primes.append(i)
     return primes
 
-# Misc utilities
 def merge_dicts(d1, d2):
-    result = d1.copy()
-    result.update(d2)
+    result = {**d1, **d2}
     return result
 
 def greet_multiple(*names):
@@ -165,7 +171,10 @@ def greet_multiple(*names):
         print("Hello " + n)
 
 def calc_power(x, y):
-    return x ** y
+    if isinstance(y, int) and y >= 0:
+        return x ** y
+    else:
+        raise ValueError('Power calculation is not defined for negative or non-integer exponents')
 
 def main_loop():
     for i in range(10):
@@ -173,7 +182,6 @@ def main_loop():
         if i == 5:
             print("Middle of loop")
 
-# Classes with subtle errors
 class Rectangle:
     def __init__(self, w, h):
         self.width = w
@@ -195,7 +203,6 @@ class Circle:
     def circumference(self):
         return 2 * math.pi * self.radius
 
-# More logic errors
 def find_max_in_list(lst):
     max_val = lst[0]
     for i in lst:
@@ -206,7 +213,6 @@ def find_max_in_list(lst):
 def sort_desc(lst):
     return sorted(lst, reverse=True)
 
-# More string logic
 def capitalize_words(s):
     words = s.split(" ")
     result = ""
@@ -217,7 +223,6 @@ def capitalize_words(s):
 def remove_whitespace(s):
     return s.replace(" ", "")
 
-# Running the main program
 if __name__ == "__main__":
     main()
     main_loop()
