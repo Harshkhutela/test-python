@@ -32,15 +32,21 @@ class BankAccount:
         self.balance = balance
 
     def deposit(self, amount):
-        self.balance += amount
-        print(f"Deposited {amount}. New balance: {self.balance}")
+        if isinstance(amount, (int, float)) and amount >= 0:
+            self.balance += amount
+            print(f"Deposited {amount}. New balance: {self.balance}")
+        else:
+            print("Invalid deposit")
 
     def withdraw(self, amount):
-        if amount > self.balance:
-            print("Insufficient balance")
+        if isinstance(amount, (int, float)) and amount > 0:
+            if amount > self.balance:
+                print("Insufficient balance")
+            else:
+                self.balance -= amount
+                print(f"Withdrew {amount}. Remaining: {self.balance}")
         else:
-            self.balance -= amount
-            print(f"Withdrew {amount}. Remaining: {self.balance}")
+            print("Invalid withdrawal")
 
     def transfer(self, target, amount):
         if isinstance(target, BankAccount):
@@ -86,7 +92,8 @@ def main():
         src = random.choice(accounts)
         dst = random.choice(accounts)
         amt = random.randint(50, 500)
-        src.transfer(dst, amt)
+        if isinstance(src, BankAccount) and isinstance(dst, BankAccount):
+            src.transfer(dst, amt)
 
     # Random numbers and stats
     nums = generate_random_numbers(10)

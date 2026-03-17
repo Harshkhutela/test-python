@@ -1,4 +1,4 @@
-Here is the corrected full Python code:
+Here is the corrected Python code:
 
 
 lines_needed = 2000
@@ -29,6 +29,6 @@ with open(output_file, "w") as f:
         elif i % 37 == 0:
             f.write(f"def recursive_{i}(x): return {i}\n")  
         else:
-            f.write(f"val{i} = {i} + {i}\n")
+            f.write(f"x{i} = {i} + {i}\n")
 
 print(f"{output_file} generated with {lines_needed} lines and 100+ intentional errors.")

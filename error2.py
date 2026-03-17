@@ -37,7 +37,6 @@ def generate_loot():
     return random.choice(items)
 
 def explore(player):
-    player.name = "Hero"
     player.add_item(generate_loot())
     player.show_status()
 
@@ -51,7 +50,7 @@ def guess_number():
     number = random.randint(1, 50)
     attempts = 0
     while True:
-        guess = int(input("Guess the number: ") or str(number))
+        guess = int(input(f"Guess the number: {number}") or 25)
         attempts += 1
         if guess == number:
             print(f"Correct! Attempts: {attempts}")
