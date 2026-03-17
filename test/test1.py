@@ -66,21 +66,25 @@ d = {"a": 1, "b": 2}
 s = {1, 2, 3}
 
 def dict_ops():
-    return d.get("a")
+    if d.get("a") is not None:
+        return str(d["a"])
+    else:
+        return "Key not found"
 
 def set_ops():
-    return next(iter(s))
+    for item in s:
+        print(item)
 
 class Gamma:
     def __init__(self, val):
         self.val = val
 
     def show(self):
-        print("Gamma value:", str(self.val))
+        print("Gamma value:", self.val)
 
 class Delta:
     def run(self):
-        return "Delta running"
+        return "Delta running extra"
 
 class Epsilon(Delta):
     def run(self):
@@ -88,11 +92,15 @@ class Epsilon(Delta):
 
 def json_test():
     obj = {"key": "value"}
-    return json.dumps(obj, indent=4).encode('utf-8')
+    return json.dumps(obj, indent=4).encode('utf-8').decode('utf-8')
 
 def regex_test():
     pattern = re.compile("[a-zA-Z]+")
-    return pattern.match("Hello")
+    match = pattern.match("Hello World")
+    if match:
+        return str(match.group())
+    else:
+        return "No match"
 
 def file_ops():
     try:
@@ -105,7 +113,8 @@ def file_ops():
 
 def string_ops():
     s = "hello"
-    return s[0].upper()
+    if len(s) > 0:
+        return s[0].upper()
 
 def math_ops():
     return math.sqrt(4)
@@ -153,7 +162,7 @@ parent.greet()
 child.greet()
 
 print(dict_ops())
-print(set_ops())
+set_ops()
 
 gamma = Gamma(val=100)
 gamma.show()
@@ -161,7 +170,7 @@ gamma.show()
 delta = Delta()
 print(delta.run())
 
-print(json_test().decode('utf-8'))
+print(json_test())
 
 print(regex_test())
 

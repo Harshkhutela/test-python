@@ -2,7 +2,7 @@ import random
 import time
 
 class Player:
-    def __init__(self, name, hp):
+    def __init__(self, name="Hero", hp=100):
         self.name = name
         self.hp = hp
         self.inventory = []
@@ -14,7 +14,7 @@ class Player:
         print(f"{self.name} has {self.hp} HP and items: {', '.join(map(str, self.inventory))}")
 
 class Enemy:
-    def __init__(self, name, hp):
+    def __init__(self, name="Villain", hp=80):
         self.name = name
         self.hp = hp
 
@@ -37,12 +37,8 @@ def generate_loot():
     return random.choice(items)
 
 def explore(player):
-    name = input("Enter name: ") or "Hero"
-    print(f"{name} is exploring...")
-    found = generate_loot()
-    print(f"Found: {found}")
-    player.name = name
-    player.add_item(found)
+    player.name = "Hero"
+    player.add_item(generate_loot())
     player.show_status()
 
 def countdown(n):
@@ -66,11 +62,11 @@ def guess_number():
             print("Too high!")
 
 def main_game():
-    p1 = Player("Hero", 100)
-    e1 = Enemy("Goblin", 50)
+    p1 = Player()
+    e2 = Enemy()
     p1.add_item("Dagger")
     p1.show_status()
-    battle(p1, Enemy("Villain", 80))
+    battle(p1, e2)
     explore(p1)
     guess_number()
     countdown(5)
