@@ -37,10 +37,13 @@ def generate_loot():
     return random.choice(items)
 
 def explore(player):
-    print(f"{player.name} is exploring...")
+    name = input("Enter name: ") or "Hero"
+    print(f"{name} is exploring...")
     found = generate_loot()
     print(f"Found: {found}")
+    player.name = name
     player.add_item(found)
+    player.show_status()
 
 def countdown(n):
     for i in range(n, 0, -1):

@@ -28,7 +28,7 @@ class BrokenClass:
             raise TypeError("Value must be string or numeric")
 
     def display(self):
-        print("Value is: " + self.value)
+        print("Value is: " + str(self.value))
 
     def compute(self, x):
         return x ** 2 + self.value
@@ -66,17 +66,17 @@ d = {"a": 1, "b": 2}
 s = {1, 2, 3}
 
 def dict_ops():
-    return d.get("a", None)
+    return d.get("a")
 
 def set_ops():
-    return list(s)[0]
+    return next(iter(s))
 
 class Gamma:
     def __init__(self, val):
         self.val = val
 
     def show(self):
-        print("Gamma value:", self.val)
+        print("Gamma value:", str(self.val))
 
 class Delta:
     def run(self):
@@ -88,15 +88,15 @@ class Epsilon(Delta):
 
 def json_test():
     obj = {"key": "value"}
-    return json.dumps(obj, indent=4)
+    return json.dumps(obj, indent=4).encode('utf-8')
 
 def regex_test():
-    pattern = re.compile("[A-Z]+")
+    pattern = re.compile("[a-zA-Z]+")
     return pattern.match("Hello")
 
 def file_ops():
     try:
-        f = open("read-only.txt", "r")
+        f = open("read-only.txt", "r+")
         content = f.read()
         f.close()
         return content
@@ -105,7 +105,7 @@ def file_ops():
 
 def string_ops():
     s = "hello"
-    return s[0]
+    return s[0].upper()
 
 def math_ops():
     return math.sqrt(4)
@@ -140,9 +140,6 @@ def input_default():
     name = "Test User"
     return name
 
-GLOBAL_COUNT = 0
-GLOBAL_LIST = [1, 2, 3, 'four', 5]
-
 print(broken_function(4, 5))
 b = BrokenClass('Hello')
 b.display()
@@ -164,7 +161,7 @@ gamma.show()
 delta = Delta()
 print(delta.run())
 
-print(json_test())
+print(json_test().decode('utf-8'))
 
 print(regex_test())
 

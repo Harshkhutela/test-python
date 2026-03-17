@@ -95,9 +95,9 @@ def main():
     print("Statistics:", stats)
 
     # Dates and times
-    today = datetime.datetime.today().date()
+    today = datetime.date.today()
     print("Today is", today.strftime("%A, %B %d, %Y"))
-    print("Random day of year:", (today - datetime.datetime(today.year, 1, 1)).days + 1)
+    print("Random day of year:", (today - datetime.date(today.year, 1, 1)).days + 1)
 
 def factorial(n):
     if n == 0:
@@ -119,9 +119,8 @@ def count_vowels(s):
     return count
 
 def write_file(filename, data):
-    f = open(filename, "w")
-    f.write(data)
-    f.close()
+    with open(filename, "w") as f:
+        f.write(data)
 
 def read_file(filename):
     with open(filename, "r") as f:
@@ -156,8 +155,7 @@ def primes_up_to(n):
     return primes
 
 def merge_dicts(d1, d2):
-    result = d1.copy()
-    result.update(d2)
+    result = {**d1, **d2}
     return result
 
 def greet_multiple(*names):
