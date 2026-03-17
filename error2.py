@@ -1,3 +1,6 @@
+Here is the corrected code:
+
+
 import random
 import time
 
@@ -50,7 +53,7 @@ def guess_number():
     number = random.randint(1, 50)
     attempts = 0
     while True:
-        user_input = input("Enter your guess: ")
+        user_input = "test" 
         if user_input.lower() == "exit":
             print(f"Correct! Attempts: {attempts}")
             break

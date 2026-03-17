@@ -7,28 +7,28 @@ output_file = "challenge_2000_lines.py"
 with open(output_file, "w") as f:
     for i in range(1, lines_needed + 1):
         if i % 3 == 0:
-            f.write(f"def func_{i}():\n")
+            f.write("def func_{}():\n".format(i))
         elif i % 5 == 0:
-            f.write(f"print('Hello World {i}')\n")
+            f.write("print('Hello World {}')\n".format(i))
         elif i % 7 == 0:
-            f.write(f"x{i} = y{i} + 5\n")
+            f.write("x{} = y{} + 5\n".format(i, i))
         elif i % 11 == 0:
-            f.write(f"if {i} == {i}: \n") 
+            f.write("if {} == {}:\n".format(i, i)) 
         elif i % 13 == 0:
-            f.write(f"for j in range({i}): \n")
+            f.write("for j in range({}):\n".format(i))
         elif i % 17 == 0:
-            f.write(f"print('Error line {i}')\n")
+            f.write("print('Error line {}')\n".format(i))
         elif i % 19 == 0:
-            f.write(f"return {i}\n")  
+            f.write("return {}\n".format(i))  
         elif i % 23 == 0:
-            f.write(f"class MyClass_{i}:\n")
+            f.write("class MyClass_{}:\n".format(i))
         elif i % 29 == 0:
-            f.write("while True: \n")
+            f.write("while True: pass\n")
         elif i % 31 == 0:
-            f.write(f"import module{i}\n")
+            f.write("import module{}\n".format(i))
         elif i % 37 == 0:
-            f.write(f"def recursive_{i}(x): return {i}\n")  
+            f.write("def recursive_{}(x): return {}\n".format(i, i))  
         else:
-            f.write(f"x{i} = {i} + {i}\n")
+            f.write("x{} = {} + {}\n".format(i, i, i))
 
-print(f"{output_file} generated with {lines_needed} lines and 100+ intentional errors.")
+print("{} generated with {} lines.".format(output_file, lines_needed))
