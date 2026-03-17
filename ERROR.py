@@ -1,4 +1,4 @@
-Here is the corrected Python file:
+Here is the corrected Python program:
 
 
 import math
@@ -6,7 +6,7 @@ import random
 import datetime
 import os
 import sys
-import statistics as stats
+from statistics import stats
 
 class User:
     def __init__(self, name, age):

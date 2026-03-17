@@ -1,4 +1,4 @@
-Here is the corrected code:
+Here is the corrected Python code:
 
 
 lines_needed = 2000
